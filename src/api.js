@@ -1,5 +1,6 @@
 const dotenv = require('dotenv').config
 const express = require('express')
+const path = require('path')
 const cors = require('cors')
 const db = require('./database/connection')
 
@@ -15,9 +16,20 @@ app.get('/', (request, response) => {
 })
 
 app.get('/cuts', async (request, response) => {
-    //const cuts = await db('prices').select('*')
+    const cuts = await db('prices').select('*')
 
-    return response.send('oi')
+    const serializedCuts = cuts.map(cut => {
+        return {
+            id: cut.id,
+            name: cut.cut,
+            price: cut.price,
+            image: `https://3333-c51871ed-a50a-47a2-af66-3e277c879c48.ws-us02.gitpod.io/uploads/${cut.image}`
+        }
+    })
+
+    return response.json(serializedCuts)
 })
+
+app.use('/uploads', express.static(path.resolve(__dirname, '..', 'uploads')))
 
 app.listen(port)
