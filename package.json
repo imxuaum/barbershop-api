@@ -1,0 +1,29 @@
+{
+  "name": "barbershop-api",
+  "version": "1.0.0",
+  "description": "API barbearia",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/api.js",
+    "knex:seed": "knex --knexfile knexfile.js seed:run",
+    "knex:migrate": "knex --knexfile knexfile.js migrate:latest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/imxuaum/barbershop-api.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/imxuaum/barbershop-api/issues"
+  },
+  "homepage": "https://github.com/imxuaum/barbershop-api#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "knex": "^0.21.12",
+    "sqlite3": "^5.0.0"
+  }
+}
