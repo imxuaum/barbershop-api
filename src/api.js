@@ -23,7 +23,7 @@ app.get('/cuts', async (request, response) => {
             id: cut.id,
             name: cut.cut,
             price: cut.price,
-            image: `https://3333-c51871ed-a50a-47a2-af66-3e277c879c48.ws-us02.gitpod.io/uploads/${cut.image}`
+            image: `cuts-api.herokuapp.com/uploads/${cut.image}`
         }
     })
 
